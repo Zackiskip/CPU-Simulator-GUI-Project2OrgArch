@@ -43,7 +43,52 @@ namespace CpuSchedulingWinForms
             //this.btnDashBoard.BackColor = Color.Transparent;
             //this.btnCpuScheduler.BackColor = Color.DimGray;
         }
+        private void btnSRTF_Click(object sender, EventArgs e)
+        {
+            if (txtProcess.Text != "")
+            {
+                Algorithms.srtfAlgorithm(txtProcess.Text);
+                int numberOfProcess = Int16.Parse(txtProcess.Text);
+                if (numberOfProcess <= 10)
+                {
+                    this.progressBar1.Increment(4); //cpu progress bar
+                    this.progressBar1.SetState(1);
+                    this.progressBar2.Increment(13);
+                    this.progressBar2.SetState(1);
+                }
+                else if (numberOfProcess > 10)
+                {
+                    this.progressBar1.Increment(15);
+                    this.progressBar1.SetState(1);
+                    this.progressBar2.Increment(38); //memory progress bar
+                    this.progressBar2.SetState(3);
+                }
 
+                listView1.Clear();
+                listView1.View = View.Details;
+
+                listView1.Columns.Add("Process ID", 150, HorizontalAlignment.Center);
+                listView1.Columns.Add("Quantum Time", 100, HorizontalAlignment.Center);
+
+                for (int i = 0; i < numberOfProcess; i++)
+                {
+                    //listBoxProcess.Items.Add(" Process " + (i + 1));
+                    var item = new ListViewItem();
+                    item.Text = "Process " + (i + 1);
+                    item.SubItems.Add("-");
+                    listView1.Items.Add(item);
+                }
+                //listBoxProcess.Items.Add("\n");
+                //listBoxProcess.Items.Add(" Total number of processes executed: " + numberOfProcess);
+                listView1.Items.Add("\n");
+                listView1.Items.Add("CPU handles: " + numberOfProcess);
+            }
+            else
+            {
+                MessageBox.Show("Enter number of processes", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtProcess.Focus();
+            }
+        }
 
         private void btnFCFS_Click(object sender, EventArgs e)
         {
@@ -347,7 +392,7 @@ namespace CpuSchedulingWinForms
         {
             if(this.Opacity > 0.0)
             {
-                this.Opacity -= 0.021;
+                this.Opacity -= 0.21;
             } else
             {
                 timer1.Stop();
@@ -358,6 +403,58 @@ namespace CpuSchedulingWinForms
         private void txtCodeInput_Click(object sender, EventArgs e)
         {
             this.txtCodeInput.Clear();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            if (txtProcess.Text != "")
+            {
+                Algorithms.srtfAlgorithm(txtProcess.Text);
+                int numberOfProcess = Int16.Parse(txtProcess.Text);
+                if (numberOfProcess <= 10)
+                {
+                    this.progressBar1.Increment(4); //cpu progress bar
+                    this.progressBar1.SetState(1);
+                    this.progressBar2.Increment(13);
+                    this.progressBar2.SetState(1);
+                }
+                else if (numberOfProcess > 10)
+                {
+                    this.progressBar1.Increment(15);
+                    this.progressBar1.SetState(1);
+                    this.progressBar2.Increment(38); //memory progress bar
+                    this.progressBar2.SetState(3);
+                }
+
+                listView1.Clear();
+                listView1.View = View.Details;
+
+                listView1.Columns.Add("Process ID", 150, HorizontalAlignment.Center);
+                listView1.Columns.Add("Quantum Time", 100, HorizontalAlignment.Center);
+
+                for (int i = 0; i < numberOfProcess; i++)
+                {
+                    //listBoxProcess.Items.Add(" Process " + (i + 1));
+                    var item = new ListViewItem();
+                    item.Text = "Process " + (i + 1);
+                    item.SubItems.Add("-");
+                    listView1.Items.Add(item);
+                }
+                //listBoxProcess.Items.Add("\n");
+                //listBoxProcess.Items.Add(" Total number of processes executed: " + numberOfProcess);
+                listView1.Items.Add("\n");
+                listView1.Items.Add("CPU handles: " + numberOfProcess);
+            }
+            else
+            {
+                MessageBox.Show("Enter number of processes", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtProcess.Focus();
+            }
         }
     }
 }
