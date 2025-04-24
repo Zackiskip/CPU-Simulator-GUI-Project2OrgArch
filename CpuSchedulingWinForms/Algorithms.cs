@@ -389,29 +389,27 @@ namespace CpuSchedulingWinForms
                     // at[num] = Convert.ToInt32(input2); ,this is to get arrival time of a process from user
 
                 }
-                int lowestBurstProcc=0;
-                double firstProccessed = 10000000000000000000;
-                for(int x = 0; x < np; x++)// first process to arrive decremented to fix a bug
-                {
-                    if (at[x] < firstProccessed)
-                    {
-                        firstProccessed = at[x];
-                        lowestBurstProcc = x;
-                    }
-                    if (x == (np - 1))
-                    {
-                        bp[lowestBurstProcc]--;
-                    }
-                }
+
+                
                 ttat = 0;
                 for (ct = 0; ct <= tbp; ct++) // get lowest burst time into remaining queue 
                 {
                     if (bp[curProccess]==0)//when burst time hits 0 on a process it records the time it completed, the turn around time, and the wait time
                     {
-                        compTime[curProccess] = ct; 
-                        tat[curProccess] = compTime[curProccess] - at[curProccess];
-                        wtp[curProccess] = tat[curProccess] - bp2[curProccess];
-                        ttat += tat[curProccess];
+                        if (at[curProccess] == 0)
+                        {
+                            compTime[curProccess] = ct-1;
+                            tat[curProccess] = compTime[curProccess] - at[curProccess];
+                            wtp[curProccess] = tat[curProccess] - bp2[curProccess];
+                            ttat += tat[curProccess];
+                        }
+                        else
+                        {
+                            compTime[curProccess] = ct;
+                            tat[curProccess] = compTime[curProccess] - at[curProccess];
+                            wtp[curProccess] = tat[curProccess] - bp2[curProccess];
+                            ttat += tat[curProccess];
+                        }
                     }
                     for (num = 0; num <= np-1; num++)
                     {
