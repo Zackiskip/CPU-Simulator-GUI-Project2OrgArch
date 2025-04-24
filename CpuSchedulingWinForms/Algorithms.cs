@@ -20,7 +20,7 @@ namespace CpuSchedulingWinForms
             string[] output1 = new string[npX2];
             double twt = 0.0, awt; 
             int num;
-
+            double total = 0.0;
             DialogResult result = MessageBox.Show("First Come First Serve Scheduling ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (result == DialogResult.Yes)
@@ -41,7 +41,11 @@ namespace CpuSchedulingWinForms
                     //var input = Console.ReadLine();
                     //bp[num] = Convert.ToInt32(input);
                 }
+                for (num = 0; num <= np - 1; num++)
+                {
+                    total = total + bp[num];
 
+                }
                 for (num = 0; num <= np - 1; num++)
                 {
                     if (num == 0)
@@ -60,6 +64,7 @@ namespace CpuSchedulingWinForms
                 }
                 awt = twt / np;
                 MessageBox.Show("Average waiting time for " + np + " processes" + " = " + awt + " sec(s)", "Average Awaiting Time", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Total time for completion " + total + " sec(s)", "", MessageBoxButtons.OK);
             }
             else if (result == DialogResult.No)
             {
@@ -80,7 +85,7 @@ namespace CpuSchedulingWinForms
             int x, num;
             double temp = 0.0;
             bool found = false;
-
+            double total=0;
             DialogResult result = MessageBox.Show("Shortest Job First Scheduling", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (result == DialogResult.Yes)
@@ -94,6 +99,11 @@ namespace CpuSchedulingWinForms
                                                            -1, -1);
 
                     bp[num] = Convert.ToInt64(input);
+                }
+                for (num = 0; num <= np - 1; num++)
+                {
+                    total = total + bp[num];
+
                 }
                 for (num = 0; num <= np - 1; num++)
                 {
@@ -149,6 +159,7 @@ namespace CpuSchedulingWinForms
                     twt = twt + wtp[num];
                 }
                 MessageBox.Show("Average waiting time for " + np + " processes" + " = " + (awt = twt / np) + " sec(s)", "Average waiting time", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Total time for completion " + total + " sec(s)", "", MessageBoxButtons.OK);
             }
         }
 
@@ -160,15 +171,18 @@ namespace CpuSchedulingWinForms
 
             if (result == DialogResult.Yes)
             {
-                double[] bp = new double[np];
-                double[] wtp = new double[np + 1];
-                int[] p = new int[np];
-                int[] sp = new int[np];
-                int x, num;
-                double twt = 0.0;
-                double awt;
-                int temp = 0;
+                double[] bp = new double[np]; //burst time for each process
+                double[] wtp = new double[np + 1]; //wait time for each process
+                int[] p = new int[np];//priority for each process
+                int[] sp = new int[np]; //sorted priority
+                int x, num; //
+                double twt = 0.0; //total wait time
+                double awt; //average wait time
+                int temp = 0; //
+                double total = 0.0; //total time for completion;
                 bool found = false;
+                int lowP=0;//lowest priority processor
+                int lowPV = 0;// the lowest priority processor's priority value
                 for (num = 0; num <= np - 1; num++)
                 {
                     string input =
@@ -188,6 +202,12 @@ namespace CpuSchedulingWinForms
                                                            -1, -1);
 
                     p[num] = Convert.ToInt16(input2);
+                }
+   
+                for (num=0;num<=np-1;num++) 
+                {
+                    total = total + bp[num];
+                
                 }
                 for (num = 0; num <= np - 1; num++)
                 {
@@ -245,6 +265,7 @@ namespace CpuSchedulingWinForms
                     twt = twt + wtp[num];
                 }
                 MessageBox.Show("Average waiting time for " + np + " processes" + " = " + (awt = twt / np) + " sec(s)", "Average waiting time", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Total time for completion " + total + " sec(s)", "", MessageBoxButtons.OK);
                 //Console.WriteLine("\n\nAverage waiting time: " + (awt = twt / np));
                 //Console.ReadLine();
             }
@@ -339,6 +360,7 @@ namespace CpuSchedulingWinForms
                 averageTurnaroundTime = Convert.ToInt64(turnaroundTime * 1.0 / np);
                 MessageBox.Show("Average wait time for " + np + " processes: " + averageWaitTime + " sec(s)", "", MessageBoxButtons.OK);
                 MessageBox.Show("Average turnaround time for " + np + " processes: " + averageTurnaroundTime + " sec(s)", "", MessageBoxButtons.OK);
+                MessageBox.Show("Total time for completion " + total + " sec(s)", "", MessageBoxButtons.OK);
             }
         }
         public static void srtfAlgorithm(string userInput)
@@ -453,6 +475,7 @@ namespace CpuSchedulingWinForms
                 atat= ttat / np;
                 MessageBox.Show("Average waiting time for " + np + " processes" + " = " + awt + " sec(s)", "Average Awaiting Time", MessageBoxButtons.OK, MessageBoxIcon.None);
                 MessageBox.Show("Average turn around time for " + np + " processes" + " = " + atat + " sec(s)", "Average Turn Around Time", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Total time for completion " + ct + " sec(s)", "", MessageBoxButtons.OK);
             }
             else if (result == DialogResult.No)
             {
@@ -580,6 +603,7 @@ namespace CpuSchedulingWinForms
                 atat = ttat / np;
                 MessageBox.Show("Average waiting time for " + np + " processes" + " = " + awt + " sec(s)", "Average Awaiting Time", MessageBoxButtons.OK, MessageBoxIcon.None);
                 MessageBox.Show("Average turn around time for " + np + " processes" + " = " + atat + " sec(s)", "Average Turn Around Time", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Total time for completion " + ct + " sec(s)", "", MessageBoxButtons.OK);
             }
             else if (result == DialogResult.No)
             {
