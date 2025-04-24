@@ -462,6 +462,133 @@ namespace CpuSchedulingWinForms
             }
 
         }
+        public static void hrrnAlgorithm(string userInput)
+        {
+            int np = Convert.ToInt16(userInput); //Number of processes
+
+            double ct = 0.0; // current time starts at 0
+            double[] bp = new double[np]; // burst time for each process
+            double tbp = 0.0; // total burst time 
+            double[] at = new double[np]; // arrival time for each process
+            double[] wtp = new double[np]; // wait time for each process
+            double twt = 0.0, awt, atat, ttat; //total wait time, average wait time,average turan around time, total turn around time
+            double[] bp2 = new double[np];//burst time to hold values for calculations later
+            int curProccess = 0; // current process being bursted
+            double[] compTime = new double[np]; // completion time for each process
+            double[] tat = new double[np]; // turnaround time for each process
+
+            int num;
+
+            DialogResult result = MessageBox.Show("Highest Response Ratio Next Scheduling? ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                for (num = 0; num <= np - 1; num++)
+                {
+                    //MessageBox.Show("Enter Burst time for P" + (num + 1) + ":", "Burst time for Process", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    //Console.WriteLine("\nEnter Burst time for P" + (num + 1) + ":");
+
+                    string input =
+                    Microsoft.VisualBasic.Interaction.InputBox("Enter Burst time: ",
+                                                       "Burst time for P" + (num + 1),
+                                                       "",
+                                                       -1, -1);
+
+                    bp[num] = Convert.ToInt64(input);
+                    bp2[num] = bp[num];
+                    tbp = tbp + bp[num];//sums all burst times of processes
+
+                    //var input = Console.ReadLine();
+                    //bp[num] = Convert.ToInt32(input);
+
+                    string input2 = Microsoft.VisualBasic.Interaction.InputBox("Enter arrival time: ",
+                                                       "Arrival time for P" + (num + 1),
+                                                       "",
+                                                       -1, -1);
+                    at[num] = Convert.ToInt64(input2);
+                    //var input2 = console.readline();
+                    // at[num] = Convert.ToInt32(input2); ,this is to get arrival time of a process from user
+
+                }
+
+
+                ttat = 0;
+                for (ct = 0; ct <= tbp; ct++) // get lowest burst time into remaining queue 
+                {
+                    if (bp[curProccess] == 0)//when burst time hits 0 on a process it records the time it completed, the turn around time, and the wait time
+                    {
+                        if (at[curProccess] == 0)
+                        {
+                            compTime[curProccess] = ct;
+                            tat[curProccess] = compTime[curProccess] - at[curProccess];
+                            wtp[curProccess] = tat[curProccess] - bp2[curProccess];
+                            ttat += tat[curProccess];
+                        }
+                        else
+                        {
+                            compTime[curProccess] = ct;
+                            tat[curProccess] = compTime[curProccess] - at[curProccess];
+                            wtp[curProccess] = tat[curProccess] - bp2[curProccess];
+                            ttat += tat[curProccess];
+                        }
+                    }
+                    for (num = 0; num <= np - 1; num++)
+                    {
+                        if (bp[curProccess] == 0 && bp[num] > 0 && at[num] <= ct)//when current process hits 0 sets current process to point to a process that is non zero
+                        {
+                            double highestResponseTime = 0;
+                            double responseTime = 0;
+                            for (int x = 0; x < np; x++)//identify highest response time
+                            {
+                                if (bp[x]!=0)//makes it so processes who have finished don't cycle back in
+                                {
+                                    wtp[x] = ct - at[x];
+                                    responseTime = (wtp[x] + bp[x]) / bp[x];
+                                }
+                                if (responseTime > highestResponseTime)
+                                {
+                                    highestResponseTime= responseTime;
+                                    curProccess = x;
+                                }
+                            }
+                        }
+                        else if (bp[curProccess]>0)//proccess still needs to run through its runtime so no need to loop around through all processes
+                        {
+                            break;
+                        }
+                    }
+                    bp[curProccess]--;//decrements burst time remaining for a process
+                }
+
+                for (num = 0; num <= np - 1; num++)
+                {
+                    if (num == 0)
+                    {
+                        MessageBox.Show("Waiting time for P" + (num + 1) + " = " + (wtp[num]) + "\nTurn around time for P" + (num + 1) + " = " + (tat[num]), "Job Queue", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Waiting time for P" + (num + 1) + " = " + wtp[num] + "\nTurn around time for P" + (num + 1) + " = " + tat[num], "Job Queue", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                }
+                for (num = 0; num <= np - 1; num++)
+                {
+                    twt = twt + wtp[num];
+                }
+                awt = twt / np;
+                atat = ttat / np;
+                MessageBox.Show("Average waiting time for " + np + " processes" + " = " + awt + " sec(s)", "Average Awaiting Time", MessageBoxButtons.OK, MessageBoxIcon.None);
+                MessageBox.Show("Average turn around time for " + np + " processes" + " = " + atat + " sec(s)", "Average Turn Around Time", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else if (result == DialogResult.No)
+            {
+                //this.Hide();
+                //Form1 frm = new Form1();
+                //frm.ShowDialog();
+            }
+
+        }
     }
 }
 
