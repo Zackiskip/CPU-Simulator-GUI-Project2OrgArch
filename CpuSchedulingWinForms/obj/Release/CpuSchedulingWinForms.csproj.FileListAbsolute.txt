@@ -19,3 +19,24 @@ C:\Users\nweke\Documents\Visual Studio 2017\Projects\CpuSchedulingWinForms\CpuSc
 C:\Users\nweke\Documents\Visual Studio 2017\Projects\CpuSchedulingWinForms\CpuSchedulingWinForms\bin\Release\zxing.presentation.pdb
 C:\Users\nweke\Documents\Visual Studio 2017\Projects\CpuSchedulingWinForms\CpuSchedulingWinForms\bin\Release\zxing.presentation.xml
 C:\Users\nweke\Documents\Visual Studio 2017\Projects\CpuSchedulingWinForms\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.csproj.CopyComplete
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\CpuSchedulingWinForms.exe.config
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\CpuSchedulingWinForms.exe
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\CpuSchedulingWinForms.pdb
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\AForge.dll
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\Zen.Barcode.Core.dll
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.dll
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.presentation.dll
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\AForge.xml
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.pdb
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.xml
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.presentation.pdb
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\bin\Release\zxing.presentation.xml
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.csproj.AssemblyReference.cache
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.CpuScheduler.resources
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.Form1.resources
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.Properties.Resources.resources
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.csproj.GenerateResource.cache
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.csproj.CoreCompileInputs.cache
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSched.BA2933A9.Up2Date
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.exe
+C:\Users\sgesz\source\repos\Zackiskip\CPU-Simulator-GUI-Project2OrgArch\CpuSchedulingWinForms\obj\Release\CpuSchedulingWinForms.pdb

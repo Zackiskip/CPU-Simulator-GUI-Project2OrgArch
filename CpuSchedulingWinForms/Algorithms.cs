@@ -181,8 +181,6 @@ namespace CpuSchedulingWinForms
                 int temp = 0; //
                 double total = 0.0; //total time for completion;
                 bool found = false;
-                int lowP=0;//lowest priority processor
-                int lowPV = 0;// the lowest priority processor's priority value
                 for (num = 0; num <= np - 1; num++)
                 {
                     string input =
